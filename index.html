@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+  <script>
+
+    const computerSelectionArray = ["Rock", "Paper", "Scissors"];
+    const playerSelection = prompt("Write one: Rock, Paper, Scissors");
+
+    function getComputerChoice() {
+      let computerSelection = computerSelectionArray[(Math.floor(Math.random() * computerSelectionArray.length))]; //select one string random from an array of 3 values (computerSelectionArray)
+      return computerSelection;
+    }
+
+    let computerChoice = getComputerChoice();
+    console.log(computerChoice); //delete this later, its just to know if the values are correct
+
+    function playOneRound(playerSelection, computerChoice) { //this function plays one round of rock, paper, scissors
+      if (playerSelection == computerChoice) {
+        return "Draw.";
+      }else if (playerSelection == "Rock" && computerChoice == "Paper"){ //if players choose rock
+        return "You lose! Paper beats Rock";
+      }else if (playerSelection == "Rock" && computerChoice == "Scissors"){
+        return "You win! Rock beats Scissors";
+      }else if (playerSelection == "Paper" && computerChoice == "Scissors"){ //if player choose paper
+        return "You lose! Scissors beats Paper";
+      }else if (playerSelection == "Paper" && computerChoice == "Rock"){
+        return "You win! Paper beats Rock";
+      }else if (playerSelection == "Scissors" && computerChoice == "Rock"){ //if player chooser scissors
+        return "You lose! Rock beats Scissors";
+      }else if (playerSelection == "Scissors" && computerChoice == "Paper"){
+        return "You win! Scissors beats Paper";
+      }
+    }
+    
+    console.log(playOneRound(playerSelection, computerChoice));
+
+  </script>
+</body>
+</html>
